@@ -2,10 +2,11 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:helloworld/features/counter/ui/counterScreen.dart';
-import 'package:helloworld/features/splash/bloc/splashbloc_bloc.dart';
-import 'package:helloworld/features/splash/bloc/splashbloc_state.dart';
-import 'package:helloworld/features/splash/container.dart';
 import 'package:helloworld/features/splash/splashScreen.dart';
+
+import 'features/splash/bloc/container_bloc.dart';
+import 'features/splash/bloc/container_state.dart';
+import 'features/splash/containerManager.dart';
 
 class SimpleBlocDelegate extends BlocDelegate {
   @override
@@ -39,11 +40,11 @@ class Application extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.teal,
       ),
-      home: BlocProvider<SplashblocBloc>(
-        builder: (context) => SplashblocBloc(container: ContainerManger()),
-        child: BlocBuilder<SplashblocBloc, SplashblocState>(
+      home: BlocProvider<ContainerBloc>(
+        builder: (context) => ContainerBloc(container: ContainerManger()),
+        child: BlocBuilder<ContainerBloc, ContainerBlocState>(
           builder: (context, state) {
             if (state is ContainerInitialised) {
               return CounterScreen();

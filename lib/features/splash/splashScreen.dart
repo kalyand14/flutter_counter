@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:helloworld/features/splash/bloc/splashbloc_bloc.dart';
-import 'package:helloworld/features/splash/bloc/splashbloc_event.dart';
+import 'package:helloworld/features/splash/bloc/bloc.dart';
+
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -13,7 +13,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
 
-    final SplashblocBloc bloc = BlocProvider.of<SplashblocBloc>(context);
+    final ContainerBloc bloc = BlocProvider.of<ContainerBloc>(context);
     bloc.dispatch(InitialiseContainer());
   }
 
@@ -21,7 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Container(
       child: Scaffold(
-        backgroundColor: Colors.blue,
+        backgroundColor: Colors.tealAccent,
         body: Center(
             child: CircularProgressIndicator(
           valueColor: new AlwaysStoppedAnimation<Color>(Colors.white),

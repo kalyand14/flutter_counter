@@ -1,20 +1,20 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
-import 'package:helloworld/features/splash/container.dart';
 import 'package:meta/meta.dart';
+import '../containerManager.dart';
 import './bloc.dart';
 
-class SplashblocBloc extends Bloc<SplashblocEvent, SplashblocState> {
+class ContainerBloc extends Bloc<ContainerBlocEvent, ContainerBlocState> {
   final ContainerManger container;
 
-  SplashblocBloc({@required this.container}) : assert(container != null);
+  ContainerBloc({@required this.container}) : assert(container != null);
 
   @override
-  SplashblocState get initialState => ContainerUnInitialised();
+  ContainerBlocState get initialState => ContainerUnInitialised();
 
   @override
-  Stream<SplashblocState> mapEventToState(
-    SplashblocEvent event,
+  Stream<ContainerBlocState> mapEventToState(
+    ContainerBlocEvent event,
   ) async* {
     if (event is InitialiseContainer) {
       yield InitialingContainer();
